@@ -1,0 +1,8 @@
+<div *ngIf="userCountryIPAddress$ | async as countryInfo; else loader" class="country-info">
+  <span> Your IP is: {{ countryInfo.ip }}</span>
+  <span> Your country name is: {{ countryInfo.name }}</span>
+</div>
+
+<ng-template #loader>
+  <div class="loader">Loading...</div>
+</ng-template>
