@@ -18,7 +18,7 @@ describe('GeoJsService', () => {
     // TODO: fill
   });
 
-  it('should emit a expected value after specified delay when using getCountryInformationDelayed function', () => {
+  it('should emit a expected value when using getCountryInformationDelayed function', () => {
     // TODO: fill
   });
 
