@@ -17,7 +17,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Cheatsheet
 
-# Running lifecycle hooks of component
+### Running lifecycle hooks of component
 All lifecycle hooks are called by testing engine after calling "detectChanges" function of fixture.
 
 ```typescript
@@ -28,7 +28,7 @@ beforeEach(() => {
 });
 ```
 
-# Querying HTML 
+### Querying HTML 
 To read attributes or values of DOM nodes, you must use debugElement of a component fixture:
 
 ```typescript
@@ -46,7 +46,7 @@ it('should get node', () => {
 });
 ```
 
-# Testing a service which returns an Observable
+### Testing a service which returns an Observable
 
 Services mostly return values from Observables as many of them deal with asynchronous tasks. Callback function passed
 to "subscribe" function is actually placed on a queue, which will be checked after "main" test function is already
@@ -62,7 +62,7 @@ it('getObservableValue should return value from observable', (done: DoneFn) => {
 });
 ```
 
-# Testing a service with time flow
+### Testing a service with time flow
 
 Because of the asynchronous nature of Observables, sometimes there is a need to simulate time passage. For example: a
 service uses rxjs timer with delay of 2 minutes to emit some value from its subject. To simulate time passage in angular
@@ -105,7 +105,7 @@ it('should contain one item after 2,5 seconds', fakeAsync(() => {
 }));
 ```
 
-# Testing service which uses HTTPClient to make an HTTP request
+### Testing service which uses HTTPClient to make an HTTP request
 
 You can add a HttpClientTestingModule to the testing module to mock HTTPClient.  
 It provides a HttpTestingController class which allows verifying expected URLs were called, and emitting values for
@@ -150,7 +150,7 @@ describe('YourService', () => {
 });
 ```
 
-# Mocking service/component dependency
+### Mocking service/component dependency
 
 Dependency Injection Tokens are injected using a constructor of a class. You may use providers array to declare services
 which will be available for injection. To inject spies or mocks of needed services you may use jasmine to create objects
