@@ -18,7 +18,6 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Cheatsheet
 
 # Running lifecycle hooks of component
-
 All lifecycle hooks are called by testing engine after calling "detectChanges" function of fixture.
 
 ```typescript
@@ -26,6 +25,24 @@ beforeEach(() => {
   fixture = TestBed.createComponent(Component);
   component = fixture.componentInstance;
   fixture.detectChanges(); // <-- will call onChanges, onInit, ...
+});
+```
+
+# Querying HTML 
+To read attributes or values of DOM nodes, you must use debugElement of a component fixture:
+
+```typescript
+import {By} from "@angular/platform-browser";
+
+beforeEach(() => {
+  fixture = TestBed.createComponent(Component);
+  component = fixture.componentInstance;
+  fixture.detectChanges();
+});
+
+it('should get node', () => {
+  const divWithSomeTextContent = fixture.debugElement.query(By.css('div.some-class'));
+  expect(divWithSomeTextContent.nativeElement.textContent).toContain("expected text");
 });
 ```
 
@@ -53,7 +70,7 @@ zone.js, as the second argument of "it" function, special "fakeAsync" callback m
 be called to pass the time.
 
 ```typescript
-it('should be green for async', fakeAsync(() => {
+it('should pass 3 seconds', fakeAsync(() => {
   const result = [];
 
   interval(1000).subscribe((emittedValue) => result.push(emittedValue));
