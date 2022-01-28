@@ -6,7 +6,7 @@ import {IRawCountry} from "../../models/country";
 @Component({
   selector: 'app-country-view',
   templateUrl: './country-view.component.html',
-  styleUrls: ['./country-view.component.scss']
+  styleUrls: ['./country-view.component.scss'],
 })
 export class CountryViewComponent implements OnInit {
   public userCountryIPAddress$!: Observable<IRawCountry>;
